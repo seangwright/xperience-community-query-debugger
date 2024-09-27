@@ -5,13 +5,34 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": ".NET Core Launch (web)",
+      "name": "Launch Query Debugger",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "dotnet: build",
+      "program": "${workspaceFolder}/src/XperienceCommunity.QueryDebugger/bin/Debug/net8.0/XperienceCommunity.QueryDebugger.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "launchBrowser": {
+        "enabled": false
+      },
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "sourceFileMap": {
+        "/Views": "${workspaceFolder}/Views"
+      }
+    },
+    {
+      "name": "Launch Dancing Goat",
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "${workspaceFolder}/src/Kentico.Xperience.RepoTemplate.Sample/bin/Debug/net6.0/DancingGoat.dll",
+      "program": "${workspaceFolder}/examples/DancingGoat/bin/Debug/net8.0/DancingGoat.dll",
       "args": [],
-      "cwd": "${workspaceFolder}/src/Kentico.Xperience.RepoTemplate.Sample",
+      "cwd": "${workspaceFolder}/examples/DancingGoat",
       "stopAtEntry": false,
       "serverReadyAction": {
         "action": "openExternally",
@@ -21,7 +42,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "sourceFileMap": {
-        "/Views": "${workspaceFolder}/Views"
+        "/Views": "${workspaceFolder}/examples/DancingGoat/Views"
       }
     },
     {

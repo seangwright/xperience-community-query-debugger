@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EFB46601-DD3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XperienceCommunity.QueryDebugger", "src\XperienceCommunity.QueryDebugger\XperienceCommunity.QueryDebugger.csproj", "{EFB10D9C-33E2-4813-8F83-D1DDB0635B44}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{C6389436-2A81-408C-9F0C-620DCEDA6D63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DancingGoat", "examples\DancingGoat\DancingGoat.csproj", "{89EB2D00-2D9C-40E3-83DF-4B5A2B06FE89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,17 @@ Global
 		{EFB10D9C-33E2-4813-8F83-D1DDB0635B44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFB10D9C-33E2-4813-8F83-D1DDB0635B44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFB10D9C-33E2-4813-8F83-D1DDB0635B44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89EB2D00-2D9C-40E3-83DF-4B5A2B06FE89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89EB2D00-2D9C-40E3-83DF-4B5A2B06FE89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89EB2D00-2D9C-40E3-83DF-4B5A2B06FE89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89EB2D00-2D9C-40E3-83DF-4B5A2B06FE89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{EFB10D9C-33E2-4813-8F83-D1DDB0635B44} = {EFB46601-DD3A-48A6-941C-5C3F1FBC2326}
+		{89EB2D00-2D9C-40E3-83DF-4B5A2B06FE89} = {C6389436-2A81-408C-9F0C-620DCEDA6D63}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C2CBCE0-A5E4-4D74-A040-88A3B906F3AF}

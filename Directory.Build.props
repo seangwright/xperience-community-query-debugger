@@ -9,8 +9,8 @@
     <VersionSuffix></VersionSuffix>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
-    <PackageProjectUrl>https://github.com/Kentico/REPOSITORY_NAME</PackageProjectUrl>
-    <PackageReleaseNotes>https://github.com/Kentico/REPOSITORY_NAME/releases</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/seangwright/xperience-community-query-debugger</PackageProjectUrl>
+    <PackageReleaseNotes>https://github.com/seangwright/xperience-community-query-debugger/releases</PackageReleaseNotes>
     <PackageIcon>logo.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>xperience;kentico;aspnetcore</PackageTags>
@@ -22,6 +22,12 @@
   </ItemGroup>
 
   <PropertyGroup>
+    <!-- Required to prevent type conflicts with Xperience types with global usings -->
+    <HotChocolateImplicitUsings>disable</HotChocolateImplicitUsings>
+  </PropertyGroup>
+
+
+  <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -30,10 +36,9 @@
     <CopyDocumentationFilesFromPackages>true</CopyDocumentationFilesFromPackages>
     <CopyDebugSymbolFilesFromPackages>true</CopyDebugSymbolFilesFromPackages>
     <NoWarn>$(NoWarn);1591</NoWarn>
-    <RootNamespace>Kentico.Xperience.RepoTemplate</RootNamespace>
+    <RootNamespace>XperienceCommunity.QueryDebugger</RootNamespace>
 
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
-    <TimestampServerUrl>http://timestamp.digicert.com</TimestampServerUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition=" $(Configuration) == 'Release' ">

@@ -1,5 +1,5 @@
-using System;
 using System.Text;
+
 using StackExchange.Profiling;
 
 namespace XperienceCommunity.QueryDebugger;
@@ -28,7 +28,7 @@ public static class MiniProfilerConsoleExtensions
             return sb;
         }
         sb.Append(timing.Name).AppendLine(":");
-        foreach (var type in timing.CustomTimings.Keys)
+        foreach (string type in timing.CustomTimings.Keys)
         {
             sb.Append("  ").Append(type).Append(':').AppendLine();
             foreach (var customTiming in timing.CustomTimings[type])

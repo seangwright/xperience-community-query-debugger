@@ -11,9 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Kentico.Xperience.Core" Version="29.5.0" />
-    <PackageReference Include="Kentico.Xperience.WebApp" Version="29.5.0" />
-    <PackageReference Include="Kentico.Xperience.MiniProfiler" Version="1.1.0" />
+    <PackageReference Include="Kentico.Xperience.Core" />
+    <PackageReference Include="Kentico.Xperience.WebApp" />
+    <PackageReference Include="Kentico.Xperience.MiniProfiler" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\examples\DancingGoat\DancingGoat.csproj" />
   </ItemGroup>
 
 </Project>

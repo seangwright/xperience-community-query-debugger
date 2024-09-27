@@ -31,4 +31,4 @@ var b = new ContentItemQueryBuilder()
 await profiler.PrintQuery(Coffee.CONTENT_TYPE_NAME, () => exectutor.GetResult(b, i => i.ContentItemID));
 
 var userProvider = Service.Resolve<IInfoProvider<UserInfo>>();
-await profiler.PrintQuery(UserInfo.OBJECT_TYPE, () => userProvider.Get().GetEnumerableTypedResultAsync());
+await profiler.PrintQuery(UserInfo.OBJECT_TYPE, () => userProvider.Get().GetEnumerableTypedResultAsync(), new() { Verbose = true });

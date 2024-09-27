@@ -1,14 +1,24 @@
-using System.Text;
+using Spectre.Console;
+
+using SQL.Formatter;
+using SQL.Formatter.Language;
 
 using StackExchange.Profiling;
 
 namespace XperienceCommunity.QueryDebugger;
 
+public class ConsolePrintOptions
+{
+    public bool PopulateCache { get; set; } = true;
+    public bool Verbose { get; set; } = false;
+}
+
 public static class MiniProfilerConsoleExtensions
 {
-    public static async Task PrintQuery(this MiniProfiler? profiler, string queryName, Func<Task> query, bool isolateCache = true)
+    public static async Task PrintQuery(this MiniProfiler? profiler, string queryName, Func<Task> query, ConsolePrintOptions? options = null)
     {
-        if (isolateCache)
+        options ??= new();
+        if (options.PopulateCache)
         {
             using var d = profiler.Ignore();
             await query();
@@ -16,39 +26,51 @@ public static class MiniProfilerConsoleExtensions
 
         using var t = profiler.Step(queryName);
         await query();
-        Console.WriteLine(t.BuildTimingString());
+        t.Print(options);
     }
 
-    public static StringBuilder BuildTimingString(this Timing? timing, StringBuilder? sb = null)
+    public static void Print(this Timing? timing, ConsolePrintOptions options)
     {
-        sb ??= new StringBuilder();
-
         if (timing is null || !timing.HasCustomTimings)
         {
-            return sb;
+            return;
         }
-        sb.Append(timing.Name).AppendLine(":");
+
+        var root = new List<Padder>
+        {
+            new(new Text($"Query: {(timing.Name ?? "").ToUpperInvariant()}", new Style(Color.Green)))
+        };
         foreach (string type in timing.CustomTimings.Keys)
         {
-            sb.Append("  ").Append(type).Append(':').AppendLine();
             foreach (var customTiming in timing.CustomTimings[type])
             {
-                if (customTiming.CommandString is null)
+                if (customTiming.CommandString is null
+                    || customTiming.CommandString.StartsWith("Connection", StringComparison.OrdinalIgnoreCase))
                 {
                     continue;
                 }
-                sb.Append("    Type:").AppendLine(customTiming.ExecuteType);
-                sb.Append("    Stack Trace:").AppendLine(customTiming.StackTraceSnippet);
-                sb.Append("    Start (ms):").AppendLine(customTiming.StartMilliseconds.ToString());
-                sb.Append("    Duration (ms):").AppendLine(customTiming.DurationMilliseconds.ToString());
-                if (customTiming.FirstFetchDurationMilliseconds.HasValue)
+
+                if (options.Verbose)
                 {
-                    sb.Append("    First Fetch (ms):").AppendLine(customTiming.FirstFetchDurationMilliseconds.ToString());
+                    root.Add(new Padder(new Text($"Type: {customTiming.ExecuteType}", new Style(Color.Yellow))).PadLeft(2).PadBottom(0).PadTop(0));
+                    root.Add(new Padder(new Text($"Stack Trace: {customTiming.StackTraceSnippet}", new Style(Color.Yellow))).PadLeft(2).PadBottom(0).PadTop(0));
+                    root.Add(new Padder(new Text($"Start (ms): {customTiming.StartMilliseconds}", new Style(Color.Yellow))).PadLeft(2).PadBottom(0).PadTop(0));
+                    root.Add(new Padder(new Text($"Duration (ms): {customTiming.DurationMilliseconds}", new Style(Color.Yellow))).PadLeft(2).PadBottom(0).PadTop(0));
+
+                    if (customTiming.FirstFetchDurationMilliseconds.HasValue)
+                    {
+                        root.Add(new Padder(new Text($"First Fetch (ms): {customTiming.FirstFetchDurationMilliseconds}", new Style(Color.Yellow))).PadLeft(2).PadBottom(0).PadTop(0));
+                    }
                 }
-                sb.Append("    Command:").AppendLine(customTiming.CommandString);
+
+                root.Add(new Padder(new Text(type.ToUpperInvariant(), new Style(Color.Yellow))).PadLeft(2).PadLeft(2).PadBottom(0).PadTop(0));
+                string formatted = SqlFormatter
+                    .Of(Dialect.TSql)
+                    .Format(customTiming.CommandString);
+                root.Add(new Padder(new Text(formatted)).PadLeft(4).PadBottom(2).PadTop(0));
             }
         }
 
-        return sb;
+        AnsiConsole.Write(new Rows(root));
     }
 }

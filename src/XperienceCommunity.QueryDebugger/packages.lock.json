@@ -2,6 +2,16 @@
   "version": 2,
   "dependencies": {
     "net8.0": {
+      "Hogimn.Sql.Formatter": {
+        "type": "Direct",
+        "requested": "[1.0.1, )",
+        "resolved": "1.0.1",
+        "contentHash": "oAUCmVB2EXiCwF7fTIPWnLraqxXD2Jyh9Bp+tK1/05D+KqLSsphk+pr8IFEFAaTDf7CWosXECaUmw9rVOe6DeA==",
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "System.Data.DataSetExtensions": "4.5.0"
+        }
+      },
       "Kentico.Xperience.Core": {
         "type": "Direct",
         "requested": "[29.5.1, )",
@@ -56,6 +66,21 @@
         "requested": "[9.32.0.97167, )",
         "resolved": "9.32.0.97167",
         "contentHash": "Yxk86RV+8ynJpUhku1Yw2hITFmnmXKkXJ73cIFSy85ol5SnWREQg9RuTyV8nI7V7+pyLKpCfRmD7P0widsgjkg=="
+      },
+      "Spectre.Console": {
+        "type": "Direct",
+        "requested": "[0.49.1, )",
+        "resolved": "0.49.1",
+        "contentHash": "USV+pdu49OJ3nCjxNuw1K9Zw/c1HCBbwbjXZp0EOn6wM99tFdAtN34KEBZUMyRuJuXlUMDqhd8Yq9obW2MslYA=="
+      },
+      "Spectre.Console.Cli": {
+        "type": "Direct",
+        "requested": "[0.49.1, )",
+        "resolved": "0.49.1",
+        "contentHash": "wBZzyEbKqfPFFUPhV5E7/k4Kwy4UDO42IVzvzk0C4Pkjjw+NSd0EOBkIutYET4vJY4X81pD9ooQO9gfBGXj4+g==",
+        "dependencies": {
+          "Spectre.Console": "0.49.1"
+        }
       },
       "AngleSharp": {
         "type": "Transitive",
@@ -439,6 +464,11 @@
         "type": "Transitive",
         "resolved": "1.1.1",
         "contentHash": "yuvf07qFWFqtK3P/MRkEKLhn5r2UbSpVueRziSqj0yJQIKFwG1pq9mOayK3zE5qZCTs0CbrwL9M6R8VwqyGy2w=="
+      },
+      "Microsoft.CSharp": {
+        "type": "Transitive",
+        "resolved": "4.7.0",
+        "contentHash": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA=="
       },
       "Microsoft.Data.SqlClient": {
         "type": "Transitive",
@@ -910,6 +940,11 @@
           "System.Text.RegularExpressions": "4.3.0",
           "System.Threading.Tasks": "4.3.0"
         }
+      },
+      "System.Data.DataSetExtensions": {
+        "type": "Transitive",
+        "resolved": "4.5.0",
+        "contentHash": "221clPs1445HkTBZPL+K9sDBdJRB8UN8rgjO3ztB0CQ26z//fmJXtlsr6whGatscsKGBrhJl5bwJuKSA8mwFOw=="
       },
       "System.Diagnostics.Debug": {
         "type": "Transitive",

@@ -11,9 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Hogimn.Sql.Formatter" />
     <PackageReference Include="Kentico.Xperience.Core" />
     <PackageReference Include="Kentico.Xperience.WebApp" />
     <PackageReference Include="Kentico.Xperience.MiniProfiler" />
+    <PackageReference Include="Spectre.Console" />
+    <PackageReference Include="Spectre.Console.Cli" />
   </ItemGroup>
 
   <ItemGroup>

@@ -28,7 +28,7 @@ var profiler = MiniProfiler.StartNew();
 var exectutor = app.Services.GetRequiredService<IContentQueryExecutor>();
 var b = new ContentItemQueryBuilder()
     .ForContentTypes(q => q.OfContentType(Coffee.CONTENT_TYPE_NAME));
-await profiler.PrintQuery(Coffee.CONTENT_TYPE_NAME, () => exectutor.GetResult(b, i => i.ContentItemID));
+await profiler.PrintQuery(Coffee.CONTENT_TYPE_NAME, () => exectutor.GetResult(b, i => i.ContentItemID), new() { PopulateCache = false });
 
 var userProvider = Service.Resolve<IInfoProvider<UserInfo>>();
 await profiler.PrintQuery(UserInfo.OBJECT_TYPE, () => userProvider.Get().GetEnumerableTypedResultAsync(), new() { Verbose = true });

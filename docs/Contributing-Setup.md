@@ -1,8 +1,6 @@
 # Contributing Setup
 
----This documents the steps a maintainer or developer would follow to work on the library in their development environment---
-
----Update the details for this project, replacing "repotemplate" and anything else that needs changed---
+This documents the steps a maintainer or developer would follow to work on the library in their development environment
 
 ## Required Software
 
@@ -15,12 +13,6 @@ The requirements to setup, develop, and build this project are listed below.
 - <https://dotnet.microsoft.com/en-us/download/dotnet/8.0>
 - See `global.json` file for specific SDK requirements
 
-### Node.js Runtime
-
-- [Node.js](https://nodejs.org/en/download) 20.10.0 or newer
-- [NVM for Windows](https://github.com/coreybutler/nvm-windows) to manage multiple installed versions of Node.js
-- See `engines` in the solution `package.json` for specific version requirements
-
 ### C# Editor
 
 - VS Code
@@ -32,12 +24,12 @@ The requirements to setup, develop, and build this project are listed below.
 SQL Server 2019 or newer compatible database
 
 - [SQL Server Linux](https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-setup?view=sql-server-ver15)
-- [Azure SQL Edge](https://learn.microsoft.com/en-us/azure/azure-sql-edge/disconnected-deployment)
+- See [Developing with Xperience by Kentico on macOS](https://community.kentico.com/blog/developing-with-xperience-by-kentico-on-macos)
 
 ### SQL Editor
 
-- MS SQL Server Management Studio
 - Azure Data Studio
+- MS SQL Server Management Studio
 
 ## Sample Project
 
@@ -47,19 +39,6 @@ Running the sample project requires creating a new Xperience by Kentico database
 
 Change directory in your console to `./examples/DancingGoat` and follow the instructions in the Xperience
 documentation on [creating a new database](https://docs.xperience.io/xp26/developers-and-admins/installation#Installation-CreatetheprojectdatabaseCreateProjectDatabase).
-
-### Admin Customization
-
-To run the Sample app Admin customization in development mode, add the following to your [User Secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-7.0&tabs=windows#secret-manager) for the application.
-
-```json
-"CMSAdminClientModuleSettings": {
-  "kentico-xperience-integrations-repotemplate": {
-    "Mode": "Proxy",
-    "Port": 3009
-  }
-}
-```
 
 ## Development Workflow
 

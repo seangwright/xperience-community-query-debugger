@@ -4,6 +4,10 @@
 
 This project is a .NET console application and sample Dancing Goat Xperience by Kentico project demoing how you can use the [Xperience by Kentico MiniProfiler](https://github.com/kentico/xperience-by-kentico-miniprofiler) integration to quickly explore and debug database queries in an Xperience project.
 
+## Screenshots
+
+![Running the default query in VS Code](https://raw.githubusercontent.com/seangwright/xperience-community-query-debugger/refs/heads/main/images/default-query-vscode-screenshot.png)
+
 ## Requirements
 
 ### Library Version Matrix
@@ -33,6 +37,9 @@ This project does not produce a NuGet package and is meant to be cloned locally 
       Example:
 
       dotnet kentico-xperience-dbmanager -s localhost -d DancingGoat-query-debugger -u sa -p Pass@12345 -a Pass@12345 --license-file ../xk-license.txt --recreate-existing-database
+
+   1. **Note**: if you change the `DancingGoat` project's database name from `DancingGoat-query-debugger`,
+      ensure you update the `src/XperienceCommunity.QueryDebugger/appsettings.json` `ConnectionString` value to match
 
 1. Run the `XperienceCommunity.QueryDebugger` console application
 
